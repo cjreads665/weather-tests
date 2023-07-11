@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "df3fdb79-a30f-47b5-ae78-106e236daf6c",
+		"name": "Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22986118"
+	},
+	"item": [
+		{
+			"name": "OpenWeather Tests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    const responseJson = pm.response.json();",
+							"",
+							"pm.test(\"should verify the lats and long\", function (){",
+							"    pm.expect(responseJson.coord.lon).to.eql(-0.13)",
+							"    pm.expect(responseJson.coord.lat).to.eql(51.51)",
+							"})",
+							"",
+							"pm.test(\"should verify the name of the place\", function (){",
+							"    pm.expect(responseJson.name).to.eql(\"London\")",
+							"})",
+							"",
+							"pm.test(\"should verify the base of the place\", function (){",
+							"    pm.expect(responseJson.base).to.eql(\"stations\")",
+							"})",
+							"",
+							"pm.test(\"should verify the id of the place\", function (){",
+							"    pm.expect(responseJson.id).to.eql(2643743)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6 907d289e10d714a6e88b30761fae22. ",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "appid",
+							"value": "b6 907d289e10d714a6e88b30761fae22. "
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
