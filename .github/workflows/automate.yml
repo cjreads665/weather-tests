@@ -16,13 +16,3 @@ jobs:
         # If your collection is in the main repository:
         run: |
           newman run weather.json
-      # OR
-      - name: Download Postman collection (from separate repository)
-        uses: actions/download-artifact@v3
-        with:
-          name: postman_collection
-          path: collections
-      - name: Run Postman collection (downloaded)
-        # If your collection is in a separate repository:
-        run: |
-          newman run weather.json
